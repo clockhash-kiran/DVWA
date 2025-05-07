@@ -1,0 +1,49 @@
+name: CI/CD with Scans
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  pre-phase:
+    name: Pre Phase - Gitleaks + Semgrep (already triggered via push webhook)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Note
+        run: echo "Pre-phase handled via GitHub push webhook"
+
+  mid-phase:
+    name: Mid Phase - Trigger Trivy Scan
+    needs: pre-phase
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Trivy Scan
+        run: |
+          curl -X POST https://81bf-122-165-243-208.ngrok-free.app/scan/trivy \
+               -H "Content-Type: application/json" \
+               -d '{
+                     "repo_url": "https://github.com/clockhash-kiran/DVWA"
+                   }'
+
+  deploy:
+    name: Deployment Step
+    needs: mid-phase
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Your App
+        run: |
+          echo "TODO: Deploy your app to staging/prod"
+
+  post-phase:
+    name: Post Phase - Trigger ZAP Scan
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger ZAP Scan
+        run: |
+          curl -X POST https://81bf-122-165-243-208.ngrok-free.app/scan/zap \
+               -H "Content-Type: application/json" \
+               -d '{
+                     "target_url": "https://example.com"
+                   }'
