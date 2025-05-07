@@ -45,7 +45,7 @@ jobs:
     steps:
       - name: Trigger ZAP Scan
         run: |
-          curl -X POST https://81bf-122-165-243-208.ngrok-free.app/scan/zap \
+          curl -X POST https://81bf-122-165-243-208.ngrok-free.app/scan/post-reports \
                -H "Content-Type: application/json" \
                -d '{
                      "target_url": "https://example.com",
