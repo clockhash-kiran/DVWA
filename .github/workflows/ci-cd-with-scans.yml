@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch: 
+  workflow_dispatch:
 
 jobs:
   pre-phase:
@@ -24,7 +24,9 @@ jobs:
           curl -X POST https://81bf-122-165-243-208.ngrok-free.app/scan/trivy \
                -H "Content-Type: application/json" \
                -d '{
-                     "repo_url": "https://github.com/clockhash-kiran/DVWA"
+                     "repo_url": "https://github.com/clockhash-kiran/DVWA",
+                     "user_id": "1ee6f687-f458-450f-933f-263255cf866d",
+                     "project_id": "3b908245-fa68-4fef-b08d-14722ec8a7c"
                    }'
 
   deploy:
@@ -46,5 +48,7 @@ jobs:
           curl -X POST https://81bf-122-165-243-208.ngrok-free.app/scan/zap \
                -H "Content-Type: application/json" \
                -d '{
-                     "target_url": "https://example.com"
+                     "target_url": "https://example.com",
+                     "user_id": "1ee6f687-f458-450f-933f-263255cf866d",
+                     "project_id": "3b908245-fa68-4fef-b08d-14722ec8a7c"
                    }'
