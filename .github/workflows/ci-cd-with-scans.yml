@@ -26,7 +26,7 @@ jobs:
                -d '{
                      "target_url": "https://github.com/clockhash-kiran/DVWA",
                      "user_id": "1ee6f687-f458-450f-933f-263255cf866d",
-                     "project_id": "3b908245-fa68-4fef-b08d-14722ec8a7c"
+                     "project_id": "3b908245-fa68-4fef-b08d-14722ec8a7c7"
                    }'
 
   deploy:
