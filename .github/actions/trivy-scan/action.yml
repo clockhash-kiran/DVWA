@@ -1,0 +1,20 @@
+name: "Trigger Trivy Scan"
+description: "Calls Trivy scan API and fails if scan detects high/critical vulnerabilities"
+
+inputs:
+  api_url:
+    description: "The full URL of the scan API endpoint"
+    required: true
+  target_url:
+    description: "Target URL to scan"
+    required: true
+  user_id:
+    description: "User ID for the scan"
+    required: true
+  project_id:
+    description: "Project ID for the scan"
+    required: true
+
+runs:
+  using: "node16"
+  main: "dist/index.js"
