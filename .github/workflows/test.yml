@@ -11,7 +11,11 @@ jobs:
     name: Mid Phase - Trivy Scan
     runs-on: ubuntu-latest
     steps:
-      - uses: clockhash-kiran/scan-actions/mid-phase@main
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Run Mid Phase Security Scan
+        uses: clockhash-kiran/scan-actions/mid-phase@main
         with:
           target_url: "https://github.com/clockhash-kiran/DVWA"
           user_id: "1ee6f687-f458-450f-933f-263255cf866d"
