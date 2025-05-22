@@ -1,4 +1,4 @@
-name: CI/CD with Scans
+name: Mid Phase Scans
 
 on:
   push:
