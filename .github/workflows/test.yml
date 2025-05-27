@@ -20,5 +20,5 @@ jobs:
           target_url: "https://github.com/clockhash-kiran/DVWA"
           user_id: "1ee6f687-f458-450f-933f-263255cf866d"
           project_id: "3b908245-fa68-4fef-b08d-14722ec8a7c7"
-          api_url: "https://5ebe-122-165-243-208.ngrok-free.app/scan/mid-request"
+          api_url: "https://4ef0-122-165-243-208.ngrok-free.app/scan/mid-request"
           api_token: ${{ secrets.API_TOKEN }}
