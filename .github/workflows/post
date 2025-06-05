@@ -1,0 +1,24 @@
+name: Post Phase Scans
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  mid-phase:
+    name: Post Phase - zap Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Run Mid Phase Security Scan
+        uses: clockhash-kiran/scan-actions/post-phase@main
+        with:
+          target_url: "https://example.com"
+          user_id: "1ee6f687-f458-450f-933f-263255cf866d"
+          project_id: "3b908245-fa68-4fef-b08d-14722ec8a7c7"
+          api_url: "https://41c5-122-165-243-208.ngrok-free.app/scan/post-request"
+          api_token: ${{ secrets.API_TOKEN }}
