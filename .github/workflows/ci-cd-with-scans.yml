@@ -1,4 +1,4 @@
-name: CI/CD with Scans
+name: Security Scans
 
 on:
   push:
@@ -8,58 +8,46 @@ on:
 
 jobs:
   pre-phase:
-    name: Pre Phase - Gitleaks + Semgrep (already triggered via push webhook)
+    name: Pre Phase - Security Scan
     runs-on: ubuntu-latest
     steps:
-      - name: Note
-        run: echo "Pre-phase handled via GitHub push webhook"
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Run Pre Phase Security Scan
+        uses: clockhash-kiran/scan-actions/pre-phase@main
+        with:
+          target_url: "https://github.com/digininja/DVWA"
+          user_id: "1ee6f687-f458-450f-933f-263255cf866d"
+          project_id: "3b908245-fa68-4fef-b08d-14722ec8a7c7"
+          api_token: ${{ secrets.API_TOKEN }}
 
   mid-phase:
-    name: Mid Phase - Trigger Trivy Scan
-    needs: pre-phase
+    name: Mid Phase - Container Scan
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger Trivy Scan
-        run: |
-          echo "Triggering Trivy scan..."
-          RESPONSE=$(curl -X POST https://0adb-122-165-243-208.ngrok-free.app/scan/mid-request \
-               -H "Content-Type: application/json" \
-               -d '{
-                     "target_url": "https://github.com/clockhash-kiran/DVWA",
-                     "user_id": "1ee6f687-f458-450f-933f-263255cf866d",
-                     "project_id": "3b908245-fa68-4fef-b08d-14722ec8a7c7"
-                   }' || exit 1)
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
-          echo "Response: $RESPONSE"
-
-          # Check if scan failed due to HIGH/CRITICAL vulnerabilities
-          if echo "$RESPONSE" | grep -q '"status": "FAILED"'; then
-            echo "Scan failed due to high/critical vulnerabilities."
-            exit 1
-          else
-            echo "Scan completed successfully."
-          fi
-
-  deploy:
-    name: Deployment Step
-    needs: mid-phase
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy Your App
-        run: |
-          echo "TODO: Deploy your app to staging/prod"
+      - name: Run Mid Phase Security Scan
+        uses: clockhash-kiran/scan-actions/mid-phase@main
+        with:
+          target_url: "nginx:latest"
+          user_id: "1ee6f687-f458-450f-933f-263255cf866d"
+          project_id: "3b908245-fa68-4fef-b08d-14722ec8a7c7"
+          api_token: ${{ secrets.API_TOKEN }}
 
   post-phase:
-    name: Post Phase - Trigger ZAP Scan
-    needs: deploy
+    name: Post Phase - Deployment Scan
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger ZAP Scan
-        run: |
-          curl -X POST https://0adb-122-165-243-208.ngrok-free.app/scan/post-request \
-               -H "Content-Type: application/json" \
-               -d '{
-                     "target_url": "https://example.com",
-                     "user_id": "1ee6f687-f458-450f-933f-263255cf866d",
-                     "project_id": "3b908245-fa68-4fef-b08d-14722ec8a7c7"
-                   }'
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Run Post Phase Security Scan
+        uses: clockhash-kiran/scan-actions/post-phase@main
+        with:
+          target_url: "https://example.com"
+          user_id: "1ee6f687-f458-450f-933f-263255cf866d"
+          project_id: "3b908245-fa68-4fef-b08d-14722ec8a7c7"
+          api_token: ${{ secrets.API_TOKEN }}
