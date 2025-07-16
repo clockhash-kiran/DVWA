@@ -18,10 +18,11 @@ jobs:
         uses: clockhash-kiran/scan-actions/pre-phase@main
         with:
           target_url: "https://github.com/digininja/DVWA"
-          user_id: "1ee6f687-f458-450f-933f-263255cf866d"
-          project_id: "3b908245-fa68-4fef-b08d-14722ec8a7c7"
+          user_id: "48b9fbee-87ac-4c67-80b6-e6a5ac7a3c9b"
+          project_id: "4a29d28e-4ae9-4406-be9c-e5cb9170fb2a"
           api_token: ${{ secrets.API_TOKEN }}
           pat: ${{ secrets.PAT_TOKEN }}
+          branch: "master"
 
   mid-phase:
     name: Mid Phase - Container Scan
@@ -34,10 +35,9 @@ jobs:
         uses: clockhash-kiran/scan-actions/mid-phase@main
         with:
           target_url: "nginx:latest"
-          user_id: "1ee6f687-f458-450f-933f-263255cf866d"
-          project_id: "3b908245-fa68-4fef-b08d-14722ec8a7c7"
+          user_id: "48b9fbee-87ac-4c67-80b6-e6a5ac7a3c9b"
+          project_id: "4a29d28e-4ae9-4406-be9c-e5cb9170fb2a"
           api_token: ${{ secrets.API_TOKEN }}
-          pat: ${{ secrets.PAT_TOKEN }}
 
   post-phase:
     name: Post Phase - Deployment Scan
@@ -50,7 +50,6 @@ jobs:
         uses: clockhash-kiran/scan-actions/post-phase@main
         with:
           target_url: "https://example.com"
-          user_id: "1ee6f687-f458-450f-933f-263255cf866d"
-          project_id: "3b908245-fa68-4fef-b08d-14722ec8a7c7"
+          user_id: "48b9fbee-87ac-4c67-80b6-e6a5ac7a3c9b"
+          project_id: "4a29d28e-4ae9-4406-be9c-e5cb9170fb2a"
           api_token: ${{ secrets.API_TOKEN }}
-          pat: ${{ secrets.PAT_TOKEN }}
