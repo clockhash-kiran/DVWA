@@ -21,4 +21,4 @@ jobs:
           user_id: "48b9fbee-87ac-4c67-80b6-e6a5ac7a3c9b"
           project_id: "4a29d28e-4ae9-4406-be9c-e5cb9170fb2a"
           api_token: ${{ secrets.API_TOKEN }}
-          branch: "main"
+          branch: "master"
