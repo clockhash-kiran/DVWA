@@ -18,7 +18,7 @@ jobs:
         uses: clockhash-kiran/scan-actions/pre-phase@main
         with:
           target_url: "github.com/digininja/DVWA"
-          user_id: "48b9fbee-87ac-4c67-80b6-e6a5ac7a3c9b"
-          project_id: "4a29d28e-4ae9-4406-be9c-e5cb9170fb2a"
+          user_id: "mnKgvDd9StJRpKSZqkW1XKucZOrbOU44"
+          project_id: "ZpIkYc4pD9CjFfCR7U29J"
           api_token: ${{ secrets.API_TOKEN }}
           branch: "master"
