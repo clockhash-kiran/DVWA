@@ -19,7 +19,8 @@ jobs:
         with:
           target_url: "nginx:latest"
           user_id: "mnKgvDd9StJRpKSZqkW1XKucZOrbOU44"
-          project_id: "mnKgvDd9StJRpKSZqkW1XKucZOrbOU44"
+          project_id: "ZpIkYc4pD9CjFfCR7U29J"
           api_token: ${{ secrets.API_TOKEN }}
+
 
 
