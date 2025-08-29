@@ -18,6 +18,7 @@ jobs:
         uses: clockhash-kiran/scan-actions/mid-phase@main
         with:
           target_url: "nginx:latest"
-          user_id: "1ee6f687-f458-450f-933f-263255cf866d"
-          project_id: "3b908245-fa68-4fef-b08d-14722ec8a7c7"
+          user_id: "mnKgvDd9StJRpKSZqkW1XKucZOrbOU44"
+          project_id: "mnKgvDd9StJRpKSZqkW1XKucZOrbOU44"
           api_token: ${{ secrets.API_TOKEN }}
+
