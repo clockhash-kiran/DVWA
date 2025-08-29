@@ -15,10 +15,11 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run Mid Phase Security Scan
-        uses: clockhash-kiran/scan-actions/mid-phase@main
+        uses: clockhash-kiran/scan-actions/mid-phase@testing
         with:
           target_url: "nginx:latest"
           user_id: "mnKgvDd9StJRpKSZqkW1XKucZOrbOU44"
           project_id: "mnKgvDd9StJRpKSZqkW1XKucZOrbOU44"
           api_token: ${{ secrets.API_TOKEN }}
+
 
