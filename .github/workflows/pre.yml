@@ -19,6 +19,6 @@ jobs:
         with:
           target_url: "github.com/digininja/DVWA"
           user_id: "mnKgvDd9StJRpKSZqkW1XKucZOrbOU44"
-          project_id: "ZpIkYc4pD9CjFfCR7U29J"
+          project_id: "w8dQJCvRlQEdPiXE8cDYg"
           api_token: ${{ secrets.API_TOKEN }}
           branch: "master"
