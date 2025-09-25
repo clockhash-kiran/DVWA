@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run Pre Phase Security Scan
-        uses: clockhash-kiran/scan-actions/pre-phase@testing
+        uses: clockhash-kiran/scan-actions/pre-phase@main
         with:
           target_url: "github.com/digininja/DVWA"
           user_id: "mnKgvDd9StJRpKSZqkW1XKucZOrbOU44"
