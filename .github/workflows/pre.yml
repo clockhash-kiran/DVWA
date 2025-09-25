@@ -19,7 +19,7 @@ jobs:
         with:
           phase: pre
           target_url: "github.com/digininja/DVWA"
-          user_id: "mnKgvDd9StJRpKSZqkW1XKucZOrbOU44"
-          project_id: "w8dQJCvRlQEdPiXE8cDYg"
+          user_id: "SnQjWROu26YUjZton3t7N9YHzOja3uQA"
+          project_id: "JrSpTfrI_0PjG3l1hU3zo"
           api_token: ${{ secrets.API_TOKEN }}
           branch: "master"
