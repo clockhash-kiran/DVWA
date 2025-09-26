@@ -1,9 +1,6 @@
 name: Security Scans
 
 on:
-  push:
-    branches:
-      - master
   workflow_dispatch:
 
 jobs:
@@ -11,45 +8,44 @@ jobs:
     name: Pre Phase - Security Scan
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
       - name: Run Pre Phase Security Scan
-        uses: clockhash-kiran/scan-actions/pre-phase@main
+        uses: clockhash-kiran/scan-actions/hashsecured-scan@main
         with:
-          target_url: "github.com/digininja/DVWA"
-          user_id: "48b9fbee-87ac-4c67-80b6-e6a5ac7a3c9b"
-          project_id: "4a29d28e-4ae9-4406-be9c-e5cb9170fb2a"
+          phase: "pre"
+          target_url: "gitlab.com/clockhash-kiran/DVWA"
+          user_id: "SnQjWROu26YUjZton3t7N9YHzOja3uQA"
+          project_id: "JrSpTfrI_0PjG3l1hU3zo"
           api_token: ${{ secrets.API_TOKEN }}
-          pat: ${{ secrets.PAT_TOKEN }}
           branch: "master"
 
   mid-phase:
     name: Mid Phase - Container Scan
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
       - name: Run Mid Phase Security Scan
-        uses: clockhash-kiran/scan-actions/mid-phase@main
+        uses: clockhash-kiran/scan-actions/hashsecured-scan@main
         with:
+          phase: "mid"
           target_url: "nginx:latest"
-          user_id: "48b9fbee-87ac-4c67-80b6-e6a5ac7a3c9b"
-          project_id: "4a29d28e-4ae9-4406-be9c-e5cb9170fb2a"
+          user_id: "SnQjWROu26YUjZton3t7N9YHzOja3uQA"
+          project_id: "JrSpTfrI_0PjG3l1hU3zo"
           api_token: ${{ secrets.API_TOKEN }}
 
   post-phase:
     name: Post Phase - Deployment Scan
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
       - name: Run Post Phase Security Scan
-        uses: clockhash-kiran/scan-actions/post-phase@main
+        uses: clockhash-kiran/scan-actions/hashsecured-scan@main
         with:
+          phase: "post"
           target_url: "https://example.com"
-          user_id: "48b9fbee-87ac-4c67-80b6-e6a5ac7a3c9b"
-          project_id: "4a29d28e-4ae9-4406-be9c-e5cb9170fb2a"
+          user_id: "SnQjWROu26YUjZton3t7N9YHzOja3uQA"
+          project_id: "JrSpTfrI_0PjG3l1hU3zo"
           api_token: ${{ secrets.API_TOKEN }}
