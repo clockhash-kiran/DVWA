@@ -19,7 +19,7 @@ jobs:
           project_id: "JrSpTfrI_0PjG3l1hU3zo"
           api_token: ${{ secrets.API_TOKEN }}
           branch: "master"
-          break: "false"
+          break: "true"
 
   mid-phase:
     name: Mid Phase - Container Scan
@@ -52,4 +52,5 @@ jobs:
           project_id: "JrSpTfrI_0PjG3l1hU3zo"
           api_token: ${{ secrets.API_TOKEN }}
           break: "false"
+
 
