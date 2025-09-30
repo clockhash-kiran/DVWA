@@ -1,25 +1,23 @@
-name: Pre Phase Scans
+name: Pre Scan
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 jobs:
-  mid-phase:
-    name: Pre Phase
+  pre-phase:
+    name: Pre Phase - Security Scan
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
       - name: Run Pre Phase Security Scan
-        uses: clockhash-kiran/scan-actions/pre-phase@main
+        uses: clockhash-kiran/scan-actions/hashsecured-scan@main
         with:
-          phase: pre
-          target_url: "github.com/digininja/DVWA"
+          phase: "pre"
+          target_url: "gitlab.com/clockhash-kiran/DVWA"
           user_id: "SnQjWROu26YUjZton3t7N9YHzOja3uQA"
           project_id: "JrSpTfrI_0PjG3l1hU3zo"
           api_token: ${{ secrets.API_TOKEN }}
           branch: "master"
+          break: "true"
+          tools: "semgrep"
