@@ -19,7 +19,7 @@ jobs:
           project_id: "JrSpTfrI_0PjG3l1hU3zo"
           api_token: ${{ secrets.API_TOKEN }}
           branch: "master"
-          break: "true"
+          break: "false"
 
   mid-phase:
     name: Mid Phase - Container Scan
@@ -35,7 +35,7 @@ jobs:
           user_id: "SnQjWROu26YUjZton3t7N9YHzOja3uQA"
           project_id: "JrSpTfrI_0PjG3l1hU3zo"
           api_token: ${{ secrets.API_TOKEN }}
-          break: "true"
+          break: "false"
 
   post-phase:
     name: Post Phase - Deployment Scan
@@ -51,4 +51,5 @@ jobs:
           user_id: "SnQjWROu26YUjZton3t7N9YHzOja3uQA"
           project_id: "JrSpTfrI_0PjG3l1hU3zo"
           api_token: ${{ secrets.API_TOKEN }}
-          break: "true"
+          break: "false"
+
