@@ -20,4 +20,4 @@ jobs:
           api_token: ${{ secrets.API_TOKEN }}
           branch: "master"
           break: "true"
-          tools: "semgrep"
+          tools: "semgrep,gibbrish,Kubesec"
