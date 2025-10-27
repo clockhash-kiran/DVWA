@@ -16,7 +16,7 @@ jobs:
           phase: "pre"
           target_url: "gitlab.com/clockhash-kiran/DVWA"
           user_id: "SnQjWROu26YUjZton3t7N9YHzOja3uQA"
-          project_id: "JrSpTfrI_0PjG3l1hU3zo"
+          project_id: "BTrMCHWCnpvJrWrqKM_j-"
           api_token: ${{ secrets.API_TOKEN }}
           branch: "master"
           break: "true"
