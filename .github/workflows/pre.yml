@@ -7,16 +7,18 @@ jobs:
   pre-phase:
     name: Pre Phase - Security Scan
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
       - name: Run Pre Phase Security Scan
         uses: clockhash-kiran/scan-actions/hashsecured-scan@main
         with:
           phase: "pre"
           target_url: "gitlab.com/clockhash-kiran/DVWA"
-          user_id: "SnQjWROu26YUjZton3t7N9YHzOja3uQA"
-          project_id: "BTrMCHWCnpvJrWrqKM_j-"
+          user_id: "PSF6z0Dcc6puAGJBlyysgdWA1aMoUdka"
+          project_id: "01KJ4AP0AFZCA83WTFDE5XSPTX"
           api_token: ${{ secrets.API_TOKEN }}
           branch: "master"
           break: "true"
